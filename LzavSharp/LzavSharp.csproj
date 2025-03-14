@@ -4,10 +4,29 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>LzavSharp</Title>
+		<Authors>Corné Hoeving</Authors>
+		<Description>A C# wrapper around the Lzav library</Description>
+		<PackageProjectUrl>https://github.com/CRNHV/LzavSharp</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/CRNHV/LzavSharp</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>LZAV;Compression;Algorithm;</PackageTags>
+		<IncludeSymbols>False</IncludeSymbols>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Lzav\Lzav.vcxproj" />
+		<None Include="..\LICENSE.txt">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
 	</ItemGroup>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
