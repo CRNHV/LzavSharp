@@ -27,6 +27,11 @@ jobs:
         run: | 
           setx VCTargetsPath "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\v140" /M
 
+        # Step 4: Build the C++ project (Lzav)
+      - name: Build Lzav (C++) project
+        run: |
+          msbuild Lzav/Lzav.vcxproj /p:Configuration=Release
+
       # Step 5: Build the C# project (LzavSharp)
       - name: Build LzavSharp (C#) project
         run: |
