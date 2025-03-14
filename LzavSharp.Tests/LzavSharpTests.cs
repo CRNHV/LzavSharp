@@ -16,7 +16,7 @@ public class LzavSharpTests
 
         byte[] compressedData = LzavSharp.CompressDefault(originalData);
         Assert.NotNull(compressedData);
-        Assert.NotEmpty(compressedData);       
+        Assert.NotEmpty(compressedData);
         byte[] decompressedData = LzavSharp.Decompress(compressedData, originalData.Length);
         Assert.Equal(originalData, decompressedData);
     }
@@ -30,7 +30,7 @@ public class LzavSharpTests
         byte[] compressedData = LzavSharp.CompressHi(originalData);
         Assert.NotNull(compressedData);
         Assert.NotEmpty(compressedData);
-        
+
         byte[] decompressedData = LzavSharp.Decompress(compressedData, originalData.Length);
         Assert.Equal(originalData, decompressedData);
     }
@@ -84,5 +84,17 @@ public class LzavSharpTests
     {
         byte[] invalidData = new byte[] { 1, 2, 3, 4, 5 };
         Assert.Throws<Exception>(() => LzavSharp.Decompress(invalidData, 100));
+    }
+
+    [Fact]
+    public void CompressDefault_ShouldCompressAndDecompressImageCorrectly()
+    {
+        byte[] originalData = File.ReadAllBytes("Resources\\Image1.jpg");
+
+        byte[] compressedData = LzavSharp.CompressDefault(originalData);
+        Assert.NotNull(compressedData);
+        Assert.NotEmpty(compressedData);
+        byte[] decompressedData = LzavSharp.Decompress(compressedData, originalData.Length);
+        Assert.Equal(originalData, decompressedData);
     }
 }
