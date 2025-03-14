@@ -1,0 +1,2 @@
+#define LZAV_API __declspec(dllexport)
+#define LZAV_API __declspec(dllimport)
