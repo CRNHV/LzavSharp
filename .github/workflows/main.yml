@@ -23,6 +23,10 @@ jobs:
       - name: Install C++ dependencies
         uses: microsoft/setup-msbuild@v1.0.2
 
+      - name: Set MSBUILD paths
+        run: | 
+          setx VCTargetsPath "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\v140" /M
+
       # Step 5: Build the C# project (LzavSharp)
       - name: Build LzavSharp (C#) project
         run: |
