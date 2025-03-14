@@ -30,7 +30,7 @@
 	</ItemGroup>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="xcopy /Y &quot;$(ProjectDir)..\$(Platform)\$(Configuration)\Lzav.dll&quot; &quot;$(TargetDir)&quot;&#xA;" />
+		<Exec Command="xcopy /Y &quot;$(SolutionDir)$(Platform)\$(Configuration)\Lzav.dll&quot; &quot;$(TargetDir)&quot;&#xA;" />
 	</Target>
 
 	<ItemGroup>
