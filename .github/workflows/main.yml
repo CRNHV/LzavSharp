@@ -1,0 +1,34 @@
+name: Build, Test, and Publish to NuGet
+
+on:
+  push:
+    branches:
+      - master
+      
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Step 2: Set up .NET SDK
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '8.0'  # Adjust this version based on your project's target .NET version
+
+      # Step 3: Install dependencies for the C++ project (if needed, adjust based on your C++ build)
+      - name: Install C++ dependencies
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      # Step 5: Build the C# project (LzavSharp)
+      - name: Build LzavSharp (C#) project
+        run: |
+          dotnet build LzavSharp/LzavSharp.csproj --configuration Release
+
+      # Step 6: Run the tests for LzavSharp.Tests
+      - name: Run tests
+        run: |
+          dotnet test LzavSharp.Tests/LzavSharp.Tests.csproj --configuration Release
